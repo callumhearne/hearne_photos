@@ -33,8 +33,8 @@
     {% endblock %}
 
     <title>Hearne Photos {% block extra_title %}{% endblock %}</title>
-  </head>
-  <body>
+    </head>
+    <body>
     <header class="container-fluid fixed-top">
         <div id="navbar" class="row bg-white pt-lg-2 d-none d-lg-flex">
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
@@ -94,6 +94,20 @@
                     </li>
                 </ul>
             </div>
+        </div>
+        <div class="row bg-white">
+            <nav class="navbar navbar-expand-lg navbar-light w-100">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                {% include 'includes/mobile-top-header.html' %}
+                {% include 'includes/main-nav.html' %}
+            </nav>
+        </div>
+        <div id="delivery-banner" class="row text-center">
+            <div class="col bg-black text-black">
+                <h4 class="logo-font my-1">Free delivery on orders over {{ free_shipping_threshold }}!</h4>                
+            </div>            
         </div>
     </header>
 

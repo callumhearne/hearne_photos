@@ -63,6 +63,10 @@ body {
     border: 1px solid black !important;
 }
 
+.bg-black {
+    background: 000 !important;
+}
+
 /* increases the size of the container on bigger screens */
 
 @media (min-width: 1200px) {
