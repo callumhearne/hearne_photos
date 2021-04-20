@@ -67,6 +67,18 @@ body {
     background: 000 !important;
 }
 
+/* hide the background photo */
+
+.overlay {
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	background: white;
+	z-index: -1;
+}
+
 /* increases the size of the container on bigger screens */
 
 @media (min-width: 1200px) {
