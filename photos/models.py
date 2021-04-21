@@ -3,10 +3,10 @@ from django.db import models
 # Create your models here.
 
 
-class Photos(models.Model):
+class Photo(models.Model):
 
     class meta:
-        verbaose_name = 'Photos'
+        verbose_name = 'Photos'
 
     Location = models.CharField(max_length=100)
     desc = models.TextField()

@@ -1,16 +1,28 @@
-from django.shortcuts import render
-from .models import Photos
+from django.shortcuts import render, get_object_or_404
+from .models import Photo
 
 # Create your views here.
 
 
-def all_photos(request):
+def photos(request):
     """ A view to return all photos page including the user searching """
 
-    Photos = Photos.objects.all()
-
+    photos = Photo.objects.all()
+    print(photos)
     context = {
-       'Photos': Photos,
+       'photos': photos,
     }
 
-    return render(request, 'photos/all_photos.html', context)
+    return render(request, 'photos/photos.html', context)
+
+
+def photos_detail(request, photo_id):
+    """ A view to show certain photo informartion"""
+
+    photos = get_object_or_404(Photo, pk=photo_id)
+
+    context = {
+       'photos': photos,
+    }
+
+    return render(request, 'photos/photos_detail.html', context)
