@@ -74,7 +74,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',  # allauth
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'bag.contexts.bag_contents',
+                'bag.contexts.bag_contents', # shopping bag
             ],
         },
     },
@@ -156,7 +156,7 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-FREE_DELIVERY_THRESHOLD = 50
+FREE_DELIVERY_THRESHOLD = 50 # these two are for the delivery rules
 STANDARD_DELIVERY_PERCENTAGE = 10
 
 # Default primary key field type
