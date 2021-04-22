@@ -44,7 +44,7 @@
                     {% for photo in photos %}
                         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                             <div class="card h-100 border-0">
-                                <!--Will show the the photo's image and the product location if it can not get the image-->
+                                <!--Will show the the photo's image and the photo location if it can not get the image-->
                                 {% if photo.img %}
                                 <a href="{% url 'photo_detail' photo.id %}">
                                     <img class="card-img-top img-fluid" src="{{ photo.img.url }}" alt="{{ photo.Location }}">
