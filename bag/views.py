@@ -8,6 +8,7 @@ def view_bag(request):
 
     return render(request, 'bag/bag.html')
 
+
 def add_to_bag(request, item_id):
     """ be able add a certain amount of photos to the shopping bag """
 
