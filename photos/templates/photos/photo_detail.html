@@ -31,13 +31,26 @@
                 <div class="product-details-container mb-5 mt-md-5">
                     <h2 class="mb-0">{{ photo.Location }}</h2>
                     <br>
-                    <p class="lead mb-0 text-left">Price: ${{ photo.price }}</p>
+                    <p class="lead mb-0 text-left">Price: £{{ photo.price }}</p>
                     <br>
                     <p class="mt-3">{{ photo.desc }}</p>
-                    <!--Will be able to put items into the shopping bag using the post method-->
+                    <!--Will be able to put items into the shopping bag using the post-->
                     <form class="form" action="{% url 'add_to_bag' photo.id %}" method="POST">
                         {% csrf_token %}
                         <div class="form-row">
+                            {% with photo.has_sizes as s %}
+                            {% if s %}
+                                <div class="col-12">
+                                    <p><strong>Size:</strong></p>
+                                    <select class="form-control rounded-0 w-50" name="photo_size" id='id_photo_size'>
+                                        <option value="4x6">4"x6"</option>
+                                        <option value="5x7">5"x7"</option>
+                                        <option value="8x10" selected>8"x10"</option>
+                                        <option value="16x20">16"x20"</option>
+                                        <option value="20x30">20"x30"</option>
+                                    </select>
+                                </div>
+                            {% endif %}
                             <div class="col-12">
                                 <p class="mt-3"><strong>Quantity:</strong></p>
                                 <div class="form-group w-50">
@@ -47,7 +60,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-12">
+                            <div class="col{% if s %}-12 mt-2{% endif %}">
                                 <a href="{% url 'photos' %}" class="btn btn-outline-black rounded-0 mt-5">
                                     <span class="icon">
                                         <i class="fas fa-chevron-left"></i>
@@ -57,6 +70,7 @@
                                 <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to Bag">
                             </div>
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                            {% endwith %}
                         </div>
                     </form>
                 </div>
