@@ -10,8 +10,7 @@ body {
     font-family: 'Lato';
 }
 
-/* make all icons central */
-
+/* from Bulma */
 .icon {
     align-items: center;
     display: inline-flex;
@@ -20,8 +19,6 @@ body {
     width: 1.5rem;
 }
 
-/* keep all logos consistent */
-
 .logo-font {
     text-transform: uppercase;
 }
@@ -29,8 +26,6 @@ body {
 .main-logo-link {
     width: fit-content;
 }
-
-/* keep all of the buttons at a consistent look and size */
 
 .shop-now-button {
     background: black;
@@ -43,12 +38,17 @@ body {
     color: white;
 }
 
-/* used to override the link colours on anchor tags */
-
 .btn-outline-black {
     background: white;
-    color: black !important; 
+    color: black !important; /* use important to override link colors for <a> elements */
     border: 1px solid black;
+}
+
+.btn-outline-black:hover,
+.btn-outline-black:active,
+.btn-outline-black:focus {
+    background: black;
+    color: white !important;
 }
 
 .shop-now-button:hover,
@@ -61,8 +61,6 @@ body {
     color: white;
 }
 
-/* text classes */
-
 .text-black {
     color: #000 !important;
 }
@@ -72,10 +70,8 @@ body {
 }
 
 .bg-black {
-    background: 000 !important;
+    background: #000 !important;
 }
-
-/* hide the background photo */
 
 .overlay {
 	height: 100%;
@@ -106,30 +102,11 @@ a.category-badge > span.badge:hover {
     cursor: pointer;
 }
 
-/* increases the size of the container on bigger screens */
-
-@media (min-width: 1200px) {
-  .container {
-    max-width: 80%;
-  }
+input[name='q']::placeholder {
+    color: #aab7c4;
 }
 
-
-@media (min-width: 992px) {
-    .fixed-top-desktop-only {
-        position: fixed;
-        top: 0;
-        right: 0;
-        left: 0;
-        z-index: 1030;
-    }
-
-    .header-container {
-        padding-top: 164px;
-    }
-}
-
-/*  bootstrap toasts positioning and styling */
+/* ------------------------------- bootstrap toasts */
 
 .message-container {
     position: fixed;
@@ -146,17 +123,6 @@ a.category-badge > span.badge:hover {
     height: 2px;
 }
 
-/* pad the top a bit when in mobile screen */
-@media (max-width: 991px) {
-    .header-container {
-        padding-top: 116px;
-    }
-
-    body {
-        height: calc(100vh - 116px);
-    }
-}
-
 /* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
 .arrow-up {
     width: 0; 
@@ -169,7 +135,7 @@ a.category-badge > span.badge:hover {
     right: 36px;
 }
 
-/* Convenience classes - all these classes are from boostrap to match colours to their message */
+/* Convenience classes - colors copied from Bootstrap */
 .arrow-primary {
     border-bottom-color: #007bff !important;
 }
@@ -206,4 +172,93 @@ a.category-badge > span.badge:hover {
     height: 100px;
     overflow-x: hidden;
     overflow-y: auto;
+}
+
+/* -------------------------------- Media Queries */
+
+/* Slightly larger container on xl screens */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 80%;
+  }
+}
+
+/* Allauth form formatting */
+
+.allauth-form-inner-content p {
+    margin-top: 1.5rem; /* mt-4 */
+    color: #6c757d; /* text-secondary */
+}
+
+.allauth-form-inner-content input {
+    border-color: #000;
+    border-radius: 0;
+}
+
+.allauth-form-inner-content label:not([for='id_remember']) {
+    display: none;
+}
+
+.allauth-form-inner-content input::placeholder {
+    color: #aab7c4;
+}
+
+.allauth-form-inner-content button,
+.allauth-form-inner-content input[type='submit'] {
+	/* btn */
+	display: inline-block;
+    font-weight: 400;
+    color: #fff;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: #000;
+    border: 1px solid #000;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0;
+
+    /* standard bootstrap btn transitions */
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.allauth-form-inner-content button:hover,
+.allauth-form-inner-content input[type='submit']:hover {	
+	color: #fff;
+    background-color: #222;
+    border-color: #222;
+}
+
+.allauth-form-inner-content a {
+	color: #17a2b8; /* text-info */
+}
+
+/* fixed top navbar only on medium and up */
+@media (min-width: 992px) {
+    .fixed-top-desktop-only {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
+
+    .header-container {
+        padding-top: 164px;
+    }
+}
+
+/* pad the top a bit when navbar is collapsed on mobile */
+@media (max-width: 991px) {
+    .header-container {
+        padding-top: 116px;
+    }
+
+    body {
+        height: calc(100vh - 116px);
+    }
 }
