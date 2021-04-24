@@ -82,3 +82,26 @@ def add_photo(request):
     }
 
     return render(request, template, context)
+
+def edit_photo(request, photo_id):
+    """ Edit a photo in the store """
+    photo = get_object_or_404(Photo, pk=photo_id)
+    if request.method == 'POST':
+        form = PhotoForm(request.POST, request.FILES, instance=photo)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated photo!')
+            return redirect(reverse('photo_detail', args=[photo.id]))
+        else:
+            messages.error(request, 'Failed to update photo. Please ensure the form is valid.')
+    else:
+        form = PhotoForm(instance=photo)
+        messages.info(request, f'You are editing {photo.Location}')
+
+    template = 'photos/edit_photo.html'
+    context = {
+        'form': form,
+        'photo': photo,
+    }
+
+    return render(request, template, context)
