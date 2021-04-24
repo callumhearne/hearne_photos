@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 from .models import Photo
@@ -63,19 +64,25 @@ def photo_detail(request, photo_id):
     return render(request, 'photos/photo_detail.html', context)
 
 
+@login_required
 def add_photo(request):
     """ Add a photo to the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
     if request.method == 'POST':
         form = PhotoForm(request.POST, request.FILES)
         if form.is_valid():
+            photo = form.save()
             form.save()
             messages.success(request, 'Successfully added photo!')
-            return redirect(reverse('add_photo'))
+            return redirect(reverse('photo_detail', args=[photo.id]))
         else:
             messages.error(request, 'Failed to add photo. Please ensure the form is valid.')
     else:
         form = PhotoForm()
-        
+       
     template = 'photos/add_photo.html'
     context = {
         'form': form,
@@ -83,8 +90,14 @@ def add_photo(request):
 
     return render(request, template, context)
 
+
+@login_required
 def edit_photo(request, photo_id):
     """ Edit a photo in the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
     photo = get_object_or_404(Photo, pk=photo_id)
     if request.method == 'POST':
         form = PhotoForm(request.POST, request.FILES, instance=photo)
@@ -105,3 +118,16 @@ def edit_photo(request, photo_id):
     }
 
     return render(request, template, context)
+
+
+@login_required
+def delete_photo(request, photo_id):
+    """ Delete a photo from the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+       
+    photo = get_object_or_404(Photo, pk=photo_id)
+    photo.delete()
+    messages.success(request, 'Photo deleted!')
+    return redirect(reverse('photos'))

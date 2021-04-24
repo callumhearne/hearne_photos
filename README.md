@@ -131,6 +131,7 @@ This website will include 5 pages that a normal user will have access to and 1 p
     - Python3 is being used to commuicate between Heroku and MongoDB to present the data.
 - Bootstrap
 - Stripe
+- Django
 
 ## Additional Technology used
 

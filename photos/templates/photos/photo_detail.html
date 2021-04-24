@@ -34,6 +34,14 @@
                     <p class="lead mb-0 text-left">Price: £{{ photo.price }}</p>
                     <br>
                     <p class="mt-3">{{ photo.desc }}</p>
+                    <br>
+                    {% if request.user.is_superuser %}
+                        <small class="">
+                            <a href="{% url 'edit_photo' photo.id %}">Edit</a> | 
+                            <a class="text-danger" href="{% url 'delete_photo' photo.id %}">Delete</a>
+                        </small>
+                    {% endif %}
+                    <br>
                     <!--Will be able to put items into the shopping bag using the post-->
                     <form class="form" action="{% url 'add_to_bag' photo.id %}" method="POST">
                         {% csrf_token %}
@@ -41,6 +49,7 @@
                             {% with photo.has_sizes as s %}
                             {% if s %}
                                 <div class="col-12">
+                                    <br>
                                     <p><strong>Size:</strong></p>
                                     <select class="form-control rounded-0 w-50" name="photo_size" id='id_photo_size'>
                                         <option value="4x6">4"x6"</option>

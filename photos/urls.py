@@ -6,6 +6,7 @@ urlpatterns = [
     path('<int:photo_id>/', views.photo_detail, name='photo_detail'),
     path('add/', views.add_photo, name='add_photo'),
     path('edit/<int:photo_id>/', views.edit_photo, name='edit_photo'),
+    path('delete/<int:photo_id>/', views.delete_photo, name='delete_photo'),
 
 
 ]

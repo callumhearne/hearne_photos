@@ -63,6 +63,13 @@
                                     <div class="row">
                                         <div class="col">
                                             <p class="lead mb-0 text-left font-weight-bold">£{{ photo.price }}</p>
+                                            <br>
+                                            {% if request.user.is_superuser %}
+                                                <small class="">
+                                                    <a href="{% url 'edit_photo' photo.id %}">Edit</a> | 
+                                                    <a class="text-danger" href="{% url 'delete_photo' photo.id %}">Delete</a>
+                                                </small>
+                                            {% endif %}
                                         </div>
                                     </div>
                                 </div>
