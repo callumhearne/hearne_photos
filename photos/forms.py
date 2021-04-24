@@ -3,16 +3,23 @@ from .models import Photo
 
 
 class PhotoForm(forms.ModelForm):
-
     class Meta:
         model = Photo
-        fields = '__all__'
+        fields = ('Location', 'desc', 'price',
+                  'has_sizes', 'img',
+                  'NE',)
 
     def __init__(self, *args, **kwargs):
+        """
+        Add placeholders and classes, remove auto-generated
+        labels and set autofocus on first field
+        """
         super().__init__(*args, **kwargs)
-        photos = Photo.objects.all()
-        friendly_names = [(p.id, p.get_friendly_name()) for p in photos]
-
-        self.fields['[photo]'].choices = friendly_names
-        for field_name, field in self.fields.items():
-            field.widget.attrs['class'] = 'border-black rounded-0'
+        placeholders = {
+            'Location': 'Location',
+            'desc': 'Description',
+            'price': 'Price',
+            'has_sizes': 'Size',
+            'img': 'Photo',
+            'NE': 'NE',
+        }

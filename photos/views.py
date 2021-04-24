@@ -64,8 +64,18 @@ def photo_detail(request, photo_id):
 
 
 def add_photo(request):
-    """ Add a product to the store """
-    form = PhotoForm()
+    """ Add a photo to the store """
+    if request.method == 'POST':
+        form = PhotoForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added photo!')
+            return redirect(reverse('add_photo'))
+        else:
+            messages.error(request, 'Failed to add photo. Please ensure the form is valid.')
+    else:
+        form = PhotoForm()
+        
     template = 'photos/add_photo.html'
     context = {
         'form': form,
