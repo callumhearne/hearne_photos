@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.db.models import Q
 from django.db.models.functions import Lower
 from .models import Photo
+from .forms import PhotoForm
 
 # Create your views here.
 
@@ -60,3 +61,14 @@ def photo_detail(request, photo_id):
     }
 
     return render(request, 'photos/photo_detail.html', context)
+
+
+def add_photo(request):
+    """ Add a product to the store """
+    form = PhotoForm()
+    template = 'photos/add_photo.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
