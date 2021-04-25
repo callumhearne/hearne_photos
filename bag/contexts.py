@@ -33,7 +33,7 @@ def bag_contents(request):
                     'size': size,
                 })
 
-    """ This will caculate the delivery deal and costs """
+    """ This will work out the delievery depending on how much is in the bag """
     if total < settings.FREE_DELIVERY_THRESHOLD:
         delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
         free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - total

@@ -126,7 +126,7 @@ WSGI_APPLICATION = 'hearne_photos.wsgi.application'
 
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
-        'default': dj_database_url.parse(os.environ.get('postgres://uvwvjkmyloqtsq:d12d5252c02ec38bcb3cb41e1aea52b50e371dad25e45cc0a79bb87fa5f518eb@ec2-54-220-35-19.eu-west-1.compute.amazonaws.com:5432/d4svrkqgmk3qec'))
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
 else:
     DATABASES = {
