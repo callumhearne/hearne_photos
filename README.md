@@ -132,6 +132,7 @@ This website will include 5 pages that a normal user will have access to and 1 p
 - Bootstrap
 - Stripe
 - Django
+- AWS Amazon
 
 ## Additional Technology used
 
