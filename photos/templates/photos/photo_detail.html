@@ -35,6 +35,7 @@
                     <br>
                     <p class="mt-3">{{ photo.desc }}</p>
                     <br>
+                    <!--edit and delete photos buttons-->
                     {% if request.user.is_superuser %}
                         <small class="">
                             <a href="{% url 'edit_photo' photo.id %}">Edit</a> | 
@@ -62,6 +63,7 @@
                             {% endif %}
                             <div class="col-12">
                                 <p class="mt-3"><strong>Quantity:</strong></p>
+                                <!--buttons to select quantity-->
                                 <div class="form-group w-50">
                                     <div class="input-group">
                                         <div class="input-group">

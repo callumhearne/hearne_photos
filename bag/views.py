@@ -76,7 +76,7 @@ def adjust_bag(request, item_id):
 
 
 def remove_from_bag(request, item_id):
-    """Remove the item from the shopping bag"""
+    """Remove the photo from the shopping bag"""
 
     try:
         photo = get_object_or_404(Photo,pk=item_id)

@@ -18,6 +18,7 @@
     <div class="container">
         <div class="row">
             <div class="col">
+                <!--title-->
                 <hr>
                 <h2 class="logo-font mb-4">My Profile</h2>
                 <hr>
@@ -25,10 +26,12 @@
         </div>
         <div class="row">
             <div class="col-12 col-lg-6">
+                <!--this will show all the users delievery info-->
                 <p class="text-muted">Default Delivery Information</p>
                 <form class="mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
                     {% csrf_token %}
                     {{ form|crispy }}
+                    <!--button so that the user can update their delievery-->
                     <button class="btn btn-black rounded-0 text-uppercase float-right">Update Information</button>
                 </form>
             </div>
@@ -48,6 +51,7 @@
                             {% for order in orders %}
                                 <tr>
                                     <td>
+                                        <!--this will show all of the data for the users previous orders-->
                                         <a href="{% url 'order_history' order.order_number %}"
                                         title="{{ order.order_number }}">
                                             {{ order.order_number|truncatechars:6 }}

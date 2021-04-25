@@ -1,7 +1,7 @@
   
 <script type="text/javascript">
 
-    // Disables the buttons for +/- outside 1-99 range
+    // Disables the buttons for + and - when the number is outside the 1-99 range
     function handleEnableDisable(itemId) {
         var currentValue = parseInt($(`#id_qty_${itemId}`).val());
         var minusDisabled = currentValue < 2;
@@ -10,7 +10,7 @@
         $(`#increment-qty_${itemId}`).prop('disabled', plusDisabled);
     }
 
-    // Ensure proper +/- when the page has loaded up
+    // make sure proper + and - when the page has loaded up
     var allQtyInputs = $('.qty_input');
     for(var i = 0; i < allQtyInputs.length; i++){
         var itemId = $(allQtyInputs[i]).data('item_id');

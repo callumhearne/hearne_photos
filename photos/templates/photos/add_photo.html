@@ -14,6 +14,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-6">
+                <!--titles-->
                 <hr>
                 <h2 class="logo-font mb-4">Photo Management</h2>
                 <h5 class="text-muted">Add a Photo</h5>
@@ -23,6 +24,7 @@
 
         <div class="row">
             <div class="col-12 col-md-6">
+                <!--button to add photo-->
                 <form method="POST" action="{% url 'add_photo' %}" class="form mb-2" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ form | crispy }}

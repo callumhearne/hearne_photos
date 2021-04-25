@@ -19,6 +19,7 @@
     <div class="container">
         <div class="row">
             <div class="col">
+                <!--title-->
                 <hr>
                 <h2 class="logo-font mb-4">Checkout</h2>
                 <hr>
@@ -36,6 +37,7 @@
                         <p class="mb-1 mt-0 small text-muted">Subtotal</p>
                     </div>
                 </div>
+                <!--show the order photo-->
                 {% for item in bag_items %}
                     <div class="row">
                         <div class="col-2 mb-1">
@@ -48,6 +50,7 @@
                             </a>
                         </div>
                         <div class="col-7">
+                            <!--show the order information-->
                             <p class="my-0"><strong>{{ item.photo.Location }}</strong></p>
                             <p class="my-0 small">Size: {% if item.photo.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
                             <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
@@ -60,6 +63,7 @@
                 <hr class="my-0">
                 <div class="row text-black text-right">
                     <div class="col-7 offset-2">
+                        <!--shows the price summary-->
                         <p class="my-0">Order Total:</p>
                         <p class="my-0">Delivery:</p>
                         <p class="my-0">Grand Total:</p>
@@ -75,6 +79,7 @@
                 <p class="text-muted">Please fill out the form below to complete your order</p>
                 <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                     {% csrf_token %}
+                    <!--input form for delivery address-->
                     <fieldset class="rounded px-3 mb-5">
                         <legend class="fieldset-label small text-black px-2 w-auto">Details</legend>
                         {{ order_form.full_name | as_crispy_field }}
