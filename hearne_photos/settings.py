@@ -125,7 +125,7 @@ WSGI_APPLICATION = 'hearne_photos.wsgi.application'
 
 
 DATABASES = {
-        'default': dj_database_url.parse('postgres://tgztlvjuprmyrl:cd9bccc6b1cd726b2fbf3fe1fc4a4e2680ec2cb6ba0bc900748c7254c4fcfd96@ec2-63-34-97-163.eu-west-1.compute.amazonaws.com:5432/dbv5mao8al496t')
+        'default': dj_database_url.parse('postgres://uvwvjkmyloqtsq:d12d5252c02ec38bcb3cb41e1aea52b50e371dad25e45cc0a79bb87fa5f518eb@ec2-54-220-35-19.eu-west-1.compute.amazonaws.com:5432/d4svrkqgmk3qec')
 }
 
 
@@ -166,10 +166,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
 
 # Stripe
 FREE_DELIVERY_THRESHOLD = 50  # these two are for the delivery rules
