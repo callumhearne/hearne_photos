@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.shortcuts import (
+    render, redirect, reverse, get_object_or_404)
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
@@ -34,10 +35,12 @@ def photos(request):
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                messages.error(request, "You didn't enter any search criteria!")
+                messages.error(request, (
+                    "You didn't enter any search criteria!"))
                 return redirect(reverse('photos'))
 
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            queries = Q(name__icontains=query) | (
+                Q(description__icontains=query))
             photos = photos.filter(queries)
 
     current_sorting = f'{sort}_{direction}'
@@ -50,6 +53,7 @@ def photos(request):
     }
 
     return render(request, 'photos/photos.html', context)
+
 
 def photos_other(request):
     """ A view to return all photos page including the user searching """
@@ -76,10 +80,12 @@ def photos_other(request):
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                messages.error(request, "You didn't enter any search criteria!")
+                messages.error(request, (
+                    "You didn't enter any search criteria!"))
                 return redirect(reverse('photos'))
 
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            queries = Q(name__icontains=query) | (
+                Q(description__icontains=query))
             photos = photos.filter(queries)
 
     current_sorting = f'{sort}_{direction}'
@@ -119,10 +125,12 @@ def photos_ne(request):
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                messages.error(request, "You didn't enter any search criteria!")
+                messages.error(request, (
+                    "You didn't enter any search criteria!"))
                 return redirect(reverse('photos'))
 
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            queries = Q(name__icontains=query) | (
+                Q(description__icontains=query))
             photos = photos.filter(queries)
 
     current_sorting = f'{sort}_{direction}'
@@ -135,7 +143,6 @@ def photos_ne(request):
     }
 
     return render(request, 'photos/photos_ne.html', context)
-
 
 
 def photo_detail(request, photo_id):
@@ -165,10 +172,10 @@ def add_photo(request):
             messages.success(request, 'Successfully added photo!')
             return redirect(reverse('photo_detail', args=[photo.id]))
         else:
-            messages.error(request, 'Failed to add photo. Please ensure the form is valid.')
+            messages.error(request, (
+                'Failed to add photo. Please ensure the form is valid.'))
     else:
         form = PhotoForm()
-       
     template = 'photos/add_photo.html'
     context = {
         'form': form,
@@ -192,7 +199,8 @@ def edit_photo(request, photo_id):
             messages.success(request, 'Successfully updated photo!')
             return redirect(reverse('photo_detail', args=[photo.id]))
         else:
-            messages.error(request, 'Failed to update photo. Please ensure the form is valid.')
+            messages.error(request, (
+                'Failed to update photo. Please ensure the form is valid.'))
     else:
         form = PhotoForm(instance=photo)
         messages.info(request, f'You are editing {photo.Location}')
@@ -212,7 +220,6 @@ def delete_photo(request, photo_id):
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
-       
     photo = get_object_or_404(Photo, pk=photo_id)
     photo.delete()
     messages.success(request, 'Photo deleted!')

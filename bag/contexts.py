@@ -21,8 +21,10 @@ def bag_contents(request):
                 'quantity': item_data,
                 'photo': photo,
             })
+
         else:
             photo = get_object_or_404(Photo, pk=item_id)
+            print(photo)
             for size, quantity in item_data['items_by_size'].items():
                 total += quantity * photo.price
                 photo_count += quantity
@@ -33,7 +35,7 @@ def bag_contents(request):
                     'size': size,
                 })
 
-    """ This will work out the delievery depending on how much is in the bag """
+    """This will work out the delievery depending on how much is in the bag"""
     if total < settings.FREE_DELIVERY_THRESHOLD:
         delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
         free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - total

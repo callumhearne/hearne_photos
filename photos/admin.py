@@ -3,6 +3,7 @@ from .models import Photo, models
 
 # Register your models here.
 
+
 class PhotosAdmin(models.Model):
     list_display = (
         'Location',
