@@ -51,6 +51,92 @@ def photos(request):
 
     return render(request, 'photos/photos.html', context)
 
+def photos_other(request):
+    """ A view to return all photos page including the user searching """
+
+    photos = Photo.objects.all()
+    query = None
+    sort = None
+    direction = None
+
+    if request.GET:
+        if 'sort' in request.GET:
+            sortkey = request.GET['sort']
+            sort = sortkey
+            if sortkey == 'name':
+                sortkey = 'lower_name'
+                photos = photos.annotate(lower_name=Lower('name'))
+
+            if 'direction' in request.GET:
+                direction = request.GET['direction']
+                if direction == 'desc':
+                    sortkey = f'-{sortkey}'
+            photos = photos.order_by(sortkey)
+
+        if 'q' in request.GET:
+            query = request.GET['q']
+            if not query:
+                messages.error(request, "You didn't enter any search criteria!")
+                return redirect(reverse('photos'))
+
+            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            photos = photos.filter(queries)
+
+    current_sorting = f'{sort}_{direction}'
+
+    context = {
+       'photos': photos,
+       'search_term': query,
+       'current_sorting': current_sorting,
+
+    }
+
+    return render(request, 'photos/photos_other.html', context)
+
+
+def photos_ne(request):
+    """ A view to return all photos page including the user searching """
+
+    photos = Photo.objects.all()
+    query = None
+    sort = None
+    direction = None
+
+    if request.GET:
+        if 'sort' in request.GET:
+            sortkey = request.GET['sort']
+            sort = sortkey
+            if sortkey == 'name':
+                sortkey = 'lower_name'
+                photos = photos.annotate(lower_name=Lower('name'))
+
+            if 'direction' in request.GET:
+                direction = request.GET['direction']
+                if direction == 'desc':
+                    sortkey = f'-{sortkey}'
+            photos = photos.order_by(sortkey)
+
+        if 'q' in request.GET:
+            query = request.GET['q']
+            if not query:
+                messages.error(request, "You didn't enter any search criteria!")
+                return redirect(reverse('photos'))
+
+            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            photos = photos.filter(queries)
+
+    current_sorting = f'{sort}_{direction}'
+
+    context = {
+       'photos': photos,
+       'search_term': query,
+       'current_sorting': current_sorting,
+
+    }
+
+    return render(request, 'photos/photos_ne.html', context)
+
+
 
 def photo_detail(request, photo_id):
     """ A view to show certain photo information"""
