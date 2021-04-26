@@ -19,7 +19,7 @@
             <div class="bag-notification-wrapper">
                 {% for item in bag_items %}
                     <div class="row">
-                        <div class="col-3 my-1"></div>
+                        <div class="col-3 my-1">
                             {% if item.photo.img %}
                             <img class="w-100" src="{{ item.photo.img.url }}" alt="{{ item.photo.Location }}">
                             {% else %}
