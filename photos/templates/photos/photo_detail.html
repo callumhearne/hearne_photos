@@ -17,7 +17,7 @@
                 <div class="image-container my-5">
                     <!--Will show the the photo's image and the photo location if it can not get the image-->
                     {% if photo.img %}
-                        <a href="{{ photo.img.url }}" target="">
+                        <a href="{{ photo.img.url }}" target="_blank">
                             <img class="card-img-top img-fluid" src="{{ photo.img.url }}" alt="{{ photo.Location }}">
                         </a>
                     {% else %}
