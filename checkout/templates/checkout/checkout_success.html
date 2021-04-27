@@ -24,7 +24,7 @@
                 <p class="text-black">Your order information is shown below. A confirmation email will be sent to <strong>{{ order.email }}</strong></p>
             </div>
         </div>
-
+        <!--this will show all of the order details-->
         <div class="row">
             <div class="col-12 col-lg-7">
               <div class="order-confirmation-wrapper p-2 border">
@@ -33,7 +33,7 @@
                             <small class="text-muted">Order Info:</small>
                         </div>
                     </div>
-
+                    
                     <div class="row">
                         <div class="col-12 col-md-4">
                             <p class="mb-0 text-black font-weight-bold">Order Number</p>
@@ -57,7 +57,7 @@
                             <small class="text-muted">Order Details:</small>
                         </div>
                     </div>
-
+                    <!--this will show all of the order details-->
                     {% for item in order.lineitems.all %}
                     <div class="row">
                         <div class="col-12 col-md-4">
@@ -177,9 +177,10 @@
                             <p class="mb-0">{{ order.grand_total }}</p>
                         </div>
                     </div>
-        </div>
+                </div>
         <div class="row">
 			<div class="col-12 col-lg-7 text-right">
+                <!--buttons to browse or go to your profile-->
                 {% if from_profile %}
                     <a href="{% url 'profile' %}" class="btn btn-black rounded-0 my-2">
                         <span class="icon mr-2">

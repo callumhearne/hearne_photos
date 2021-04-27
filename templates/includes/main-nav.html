@@ -4,7 +4,7 @@
         <li class="nav-item dropdown">
             <a class="logo-font font-weight-bold nav-link  text-black mr-5" href="#" id="all-photos-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 All Photos 
-            </a>
+            </a><!--All photos drop down-->
             <div class="dropdown-menu border-0" aria-labelledby="all-photos-link">
                 <a href="{% url 'photos' %}?sort=price&direction=asc" class="dropdown-item">Price: Low to High </a>
                 <a href="{% url 'photos' %}?sort=price&direction=desc" class="dropdown-item">Price: High to Low </a>
@@ -15,7 +15,7 @@
         <li class="nav-item dropdown">
             <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'photos' %}" id="clothing-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 North East
-            </a>
+            </a><!--north east drop down-->
             <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
                 <a href="{% url 'photos_ne' %}?sort=price&direction=asc" class="dropdown-item">Price: Low to High </a>
                 <a href="{% url 'photos_ne' %}?sort=price&direction=desc" class="dropdown-item">Price: High to Low </a>
@@ -26,7 +26,7 @@
         <li class="nav-item dropdown">
             <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="homeware-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Other
-            </a>
+            </a><!--other drop down-->
             <div class="dropdown-menu border-0" aria-labelledby="homeware-link">
                 <a href="{% url 'photos_other' %}?sort=price&direction=asc" class="dropdown-item">Price: Low to High </a>
                 <a href="{% url 'photos_other' %}?sort=price&direction=desc" class="dropdown-item">Price: High to Low </a>

@@ -1,5 +1,6 @@
 <form class="form update-form" method="POST" action="{% url 'adjust_bag' item.item_id %}">
     {% csrf_token %}
+    <!--take photos off the bag-->
     <div class="form-group">
         <div class="input-group">
             <div class="input-group-prepend">
@@ -10,6 +11,7 @@
                     </span>
                 </button>
             </div>
+            <!--update photos button-->
             <input class="form-control form-control-sm qty_input" type="number"
                 name="quantity" value="{{ item.quantity }}" min="1" max="99"
                 data-item_id="{{ item.item_id }}"

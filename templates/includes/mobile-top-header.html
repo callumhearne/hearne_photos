@@ -5,6 +5,7 @@
             <p class="my-0">Search</p>
         </div>
     </a>
+    <!--Search bar-->
     <div class="dropdown-menu border-0 w-100 p-3 rounded-0 my-0" aria-labelledby="mobile-search">
         <form class="form" method="GET" action="{% url 'photos' %}">
             <div class="input-group w-100">
@@ -27,6 +28,7 @@
             <p class="my-0">My Account</p>
         </div>
     </a>
+    <!--drop dwon depending if theyre logged in or a superuser-->
     <div class="dropdown-menu border-0" aria-labelledby="user-options">
         {% if request.user.is_authenticated %}
             {% if request.user.is_superuser %}
@@ -45,6 +47,7 @@
     </div>
 </li>
 <li class="list-inline-item">
+    <!--live shopping bag that will up date as things get added-->
     <a class="{% if grand_total %}text-primary font-weight-bold{% else %}text-black{% endif %} nav-link d-block d-lg-none" href="{% url 'view_bag' %}">
         <div class="text-center">
             <div><i class="fas fa-shopping-bag fa-lg"></i></div>
