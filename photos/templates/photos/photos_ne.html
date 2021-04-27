@@ -49,11 +49,11 @@
                                 <!--Will show the the photo's image and the photo location if it can not get the image-->
                                 {% if photo.img %}
                                 <a href="{% url 'photo_detail' photo.id %}">
-                                    <img class="card-img-top img-fluid" src="{{ photo.img.url }}" alt="{{ photo.Location }}">
+                                    <img class="card-img-top img-fluid img-height" src="{{ photo.img.url }}" alt="{{ photo.Location }}">
                                 </a>
                                 {% else %}
                                 <a href="{% url 'photo_detail' photo.id %}">
-                                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ photo.Location }}">
+                                    <img class="card-img-top img-fluid img-height" src="{{ MEDIA_URL }}noimage.png" alt="{{ photo.Location }}">
                                 </a>
                                 {% endif %}
                                 <!--Will show the photo name-->

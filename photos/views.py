@@ -39,8 +39,8 @@ def photos(request):
                     "You didn't enter any search criteria!"))
                 return redirect(reverse('photos'))
 
-            queries = Q(name__icontains=query) | (
-                Q(description__icontains=query))
+            queries = Q(Location__icontains=query) | (
+                Q(desc__icontains=query))
             photos = photos.filter(queries)
 
     current_sorting = f'{sort}_{direction}'
@@ -77,16 +77,10 @@ def photos_other(request):
                     sortkey = f'-{sortkey}'
             photos = photos.order_by(sortkey)
 
-        if 'q' in request.GET:
-            query = request.GET['q']
-            if not query:
-                messages.error(request, (
-                    "You didn't enter any search criteria!"))
-                return redirect(reverse('photos'))
+        if 'NE' in request.GET:
 
-            queries = Q(name__icontains=query) | (
-                Q(description__icontains=query))
-            photos = photos.filter(queries)
+            ne = photos.filter(NE=False)
+            photos = Photo.objects.filter(NE=False)
 
     current_sorting = f'{sort}_{direction}'
 
@@ -122,16 +116,10 @@ def photos_ne(request):
                     sortkey = f'-{sortkey}'
             photos = photos.order_by(sortkey)
 
-        if 'q' in request.GET:
-            query = request.GET['q']
-            if not query:
-                messages.error(request, (
-                    "You didn't enter any search criteria!"))
-                return redirect(reverse('photos'))
+        if 'NE' in request.GET:
 
-            queries = Q(name__icontains=query) | (
-                Q(description__icontains=query))
-            photos = photos.filter(queries)
+            ne = photos.filter(NE=True)
+            photos = Photo.objects.filter(NE=True)
 
     current_sorting = f'{sort}_{direction}'
 

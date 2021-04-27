@@ -17,7 +17,7 @@
                 <div class="image-container my-5">
                     <!--Will show the the photo's image and the photo location if it can not get the image-->
                     {% if photo.img %}
-                        <a href="">
+                        <a href="{{ photo.img.url }}" target="_blank">
                             <img class="card-img-top img-fluid" src="{{ photo.img.url }}" alt="{{ photo.Location }}">
                         </a>
                     {% else %}
@@ -90,7 +90,7 @@
                                      </div>
                                  </div>
                             </div>
-
+                            <!--button to keep browsing-->
                             <div class="col{% if s %}-12 mt-2{% endif %}">
                                 <a href="{% url 'photos' %}" class="btn btn-outline-black rounded-0 mt-5">
                                     <span class="icon">

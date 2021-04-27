@@ -77,9 +77,6 @@ base.html:
 alllauth templates:
 - When putting this page through the validator it knocks back all of the jinja as errors however they are working as intended.
 
-
-
-
 CSS
 -
 To validate my code I used: https://jigsaw.w3.org/css-validator/

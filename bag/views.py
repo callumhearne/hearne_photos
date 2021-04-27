@@ -50,7 +50,7 @@ def add_to_bag(request, item_id):
 def adjust_bag(request, item_id):
     """Adjust the quantity of the specified photo to the specified amount"""
 
-    photo = get_object_or_404(Photo,pk=item_id)
+    photo = get_object_or_404(Photo, pk=item_id)
     quantity = int(request.POST.get('quantity'))
     size = None
     if 'photo_size' in request.POST:
@@ -79,7 +79,7 @@ def remove_from_bag(request, item_id):
     """Remove the photo from the shopping bag"""
 
     try:
-        photo = get_object_or_404(Photo,pk=item_id)
+        photo = get_object_or_404(Photo, pk=item_id)
         size = None
         if 'photo_size' in request.POST:
             size = request.POST['photo_size']
