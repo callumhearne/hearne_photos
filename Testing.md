@@ -9,12 +9,17 @@ The testing process I went through is listed below:
 Testing user stories
 
 New users :
+
 - New users are able to see only photos from the north east by either selecting the north east page or the usering the search bar. 
 - New users are able to see only photos from the other place by either selecting the others page or the usering the search bar.
+
 Returing users:
+
 - Store owners will be able to edit any photos on the site.
 - Store owners are able to add and edit any photos on the site. 
+
 Tablet user:
+
 - The website is fully repsonsive on tablets and phones so this user will be able to use the website fine.
 
 Validating my code
