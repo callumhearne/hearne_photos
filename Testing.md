@@ -18,7 +18,7 @@ Returing users:
 - Store owners will be able to edit any photos on the site.
 - Store owners are able to add and edit any photos on the site. 
 
-Tablet user:
+User:
 
 - The website is fully repsonsive on tablets and phones so this user will be able to use the website fine.
 
