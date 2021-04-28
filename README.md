@@ -170,7 +170,7 @@ The testing I have done has been documented on a different document. This is the
 
 # Deploying my project
 
-To deploy my app/website I have used Heroku the link for the app is here: 
+To deploy my app/website I have used Heroku the link for the app is here: https://hearne-photos.herokuapp.com/ 
 
 ## Deploying to Heroku
 

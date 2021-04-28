@@ -22,6 +22,10 @@ User:
 
 - The website is fully repsonsive on tablets and phones so this user will be able to use the website fine.
 
+Website Responsivnes
+
+- I have tested all of the pages against all of the different screen types on the to make sure that they are all responsive.
+
 Validating my code
 
 HMTL
@@ -99,7 +103,9 @@ To validate my code I used: https://jshint.com/
 
 Python
 
-- I used the python3 -m flake8 command to see all of the python errors, I have went through the individual errors to correct them apart from errors coming from the setting.py and migrations because they weren't created by me and shouldnt be changed.
+To validate my code I used: http://pep8online.com/checkresult
+
+- The only issues I found using this website was in settings with lines being too long. However I did not change them as that code was not done by me and shouldn't be changed.
 
 Manual Testing
 
