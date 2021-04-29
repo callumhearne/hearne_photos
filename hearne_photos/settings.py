@@ -52,6 +52,8 @@ INSTALLED_APPS = [
     # other apps
     'crispy_forms',
     'storages',
+    'phonenumber_field',
+    'phone_field',
 
 
 ]
@@ -227,3 +229,5 @@ else:
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+PHONENUMBER_DEFAULT_REGION = 'US'

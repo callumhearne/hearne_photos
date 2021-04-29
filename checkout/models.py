@@ -3,7 +3,6 @@ import uuid
 from django.db import models
 from django.db.models import Sum
 from django.conf import settings
-
 from django_countries.fields import CountryField
 
 from photos.models import Photo
@@ -19,7 +18,7 @@ class Order(models.Model):
                                      related_name='orders')
     full_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
-    phone_number = models.CharField(max_length=11, null=False, blank=False)
+    phone_number = models.BigIntegerField(max_length=11)
     country = CountryField(blank_label='Country *', null=False, blank=False)
     postcode = models.CharField(max_length=20, null=True, blank=True)
     town_or_city = models.CharField(max_length=40, null=False, blank=False)
