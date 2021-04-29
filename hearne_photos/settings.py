@@ -124,9 +124,9 @@ WSGI_APPLICATION = 'hearne_photos.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 
-if 'DATABASE_URL' in os.environ:
+if 'HEROKU_POSTGRESQL_PINK_URL' in os.environ:
     DATABASES = {
-        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+        'default': dj_database_url.parse(os.environ.get('HEROKU_POSTGRESQL_PINK_URL'))
     }
 else:
     DATABASES = {
@@ -136,6 +136,13 @@ else:
         }
     }
 
+#DATABASES = {
+#'default': dj_database_url.parse('postgres://fexseppctpzmzb:da4c4f0b724d4c28887c1393f92d00679711c13264dd2222a3f16ab82e07e785@ec2-52-50-171-4.eu-west-1.compute.amazonaws.com:5432/dnb9aj56lu5pg')
+#}
+
+#DATABASES = {
+#'default': dj_database_url.parse('postgres://dsuhiocjshrgqr:286c63c5d582db9a9295915459ecd30f8eabcbb418cb2e033186f0155307e0f4@ec2-52-213-119-221.eu-west-1.compute.amazonaws.com:5432/d3al0qo9qlo5do')
+#}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
