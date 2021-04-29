@@ -78,8 +78,6 @@ def photos_other(request):
             photos = photos.order_by(sortkey)
 
         if 'NE' in request.GET:
-
-            ne = photos.filter(NE=False)
             photos = Photo.objects.filter(NE=False)
 
     current_sorting = f'{sort}_{direction}'
@@ -117,8 +115,6 @@ def photos_ne(request):
             photos = photos.order_by(sortkey)
 
         if 'NE' in request.GET:
-
-            ne = photos.filter(NE=True)
             photos = Photo.objects.filter(NE=True)
 
     current_sorting = f'{sort}_{direction}'

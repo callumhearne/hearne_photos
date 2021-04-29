@@ -28,20 +28,30 @@ def add_to_bag(request, item_id):
         if item_id in list(bag.keys()):
             if size in bag[item_id]['items_by_size'].keys():
                 bag[item_id]['items_by_size'][size] += quantity
-                messages.success(request, f'Updated size {size.upper()} {photo.Location} quantity to {bag[item_id]["items_by_size"][size]}')
+                messages.success(request,
+                                 f'Updated size {size.upper()} +'
+                                 f'{photo.Location} quantity to +'
+                                 f'{bag[item_id]["items_by_size"][size]}')
             else:
                 bag[item_id]['items_by_size'][size] = quantity
-                messages.success(request, f'Added size {size.upper()} {photo.Location} to your bag')
+                messages.success(request,
+                                 f'Added size {size.upper()} +'
+                                 f'{photo.Location} to your bag')
         else:
             bag[item_id] = {'items_by_size': {size: quantity}}
-            messages.success(request, f'Added size {size.upper()} {photo.Location} to your bag')
+            messages.success(request,
+                             f'Added size {size.upper()} +'
+                             f'{photo.Location} to your bag')
     else:
         if item_id in list(bag.keys()):
             bag[item_id] += quantity
-            messages.success(request, f'Updated {photo.Location} quantity to {bag[item_id]}')
+            messages.success(request,
+                             f'Updated {photo.Location} +'
+                             f'quantity to {bag[item_id]}')
         else:
             bag[item_id] = quantity
-            messages.success(request, f'Added {photo.Location} to your bag')
+            messages.success(request,
+                             f'Added {photo.Location} to your bag')
 
     request.session['bag'] = bag
     return redirect(redirect_url)
@@ -60,16 +70,23 @@ def adjust_bag(request, item_id):
     if size:
         if quantity > 0:
             bag[item_id]['items_by_size'][size] = quantity
-            messages.success(request, f'Updated size {size.upper()} {photo.Location} quantity to {bag[item_id]["items_by_size"][size]}')
+            messages.success(request,
+                             f'Updated size {size.upper()} +'
+                             f'{photo.Location} quantity to +'
+                             f'{bag[item_id]["items_by_size"][size]}')
         else:
             del bag[item_id]['items_by_size'][size]
             if not bag[item_id]['items_by_size']:
                 bag.pop(item_id)
-                messages.success(request, f'Removed size {size.upper()} {photo.Location} from your bag')
+                messages.success(request,
+                                 f'Removed size {size.upper()} +'
+                                 f' {photo.Location} from your bag')
     else:
         if quantity > 0:
             bag[item_id] = quantity
-            messages.success(request, f'Updated {photo.Location} quantity to {bag[item_id]}')
+            messages.success(request,
+                             f'Updated {photo.Location} +'
+                             f' quantity to {bag[item_id]}')
 
     request.session['bag'] = bag
     return redirect(reverse('view_bag'))
@@ -89,7 +106,9 @@ def remove_from_bag(request, item_id):
             del bag[item_id]['items_by_size'][size]
             if not bag[item_id]['items_by_size']:
                 bag.pop(item_id)
-            messages.success(request, f'Removed size {size.upper()} {photo.Location} from your bag')
+            messages.success(request,
+                             f'Removed size {size.upper()} +'
+                             f' {photo.Location} from your bag')
 
         request.session['bag'] = bag
         return HttpResponse(status=200)
