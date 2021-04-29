@@ -1,6 +1,6 @@
 # Hearne Photos
 
-![image of my website]()
+![image of my website](https://github.com/callumhearne/hearne_photos/blob/master/hearne_photos.png)
 
 Hearne Photos is a website where my Father will be able to sell the photos he has taken over the years during his walking trips.
 
@@ -8,7 +8,7 @@ I got the idea from the fact my Father has thousands of photos on his hard drive
 
 This is my fourth of four milestone projects that make up my Full Stack Web Development course at THE CODE INSTITUTE. The main requirements are to make a responsive website with HTML5, CSS3, Java Script, Python, Stripe payments, relational databases and additional libraries.
 
-Here is the link to my live website : 
+Here is the link to my live website : https://hearne-photos.herokuapp.com/
 
 # UX
 
