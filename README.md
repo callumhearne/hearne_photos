@@ -29,8 +29,8 @@ Here is the link to my live website :
 
 ## Returning User
 
-- I am a returning user who wants to be able to return to the website and have their shopping basket intact.
-- I am a returning user who wants to be able to delete items from the shopping basket.
+- Store owners want to be able to edit already made photos.
+- Store owners want to be able to add and remove photos.
 
 ## Tablet User
 
@@ -93,23 +93,46 @@ This website will include 5 pages that a normal user will have access to and 1 p
 
 ## Shopping basket
 
-- This will have a navbar that links to the other pages.
+- This page will have a navbar that links to the other pages.
 - From the shopping basket page users will be able to remove items from their basket.
-- Users will be able to fill in their billing address and shipping address.
+- There will be information and previews of the photos in the basket.
 
 ## Login 
 
+- This page will have a navbar that links to the other pages.
 - Page will have a username input box.
 - Page will have a password input box.
 - Page will have a login button.
 
 ## Sign up
 
+- This page will have a navbar that links to the other pages.
 - Page will have a username input box.
 - Page will have a password input box.
 - Page will have a email address input box.
 - Page will have a register to webiste button.
 - When registering the user will get a confirmation email.
+
+## Sign up
+
+- This page will have a navbar that links to the other pages.
+- There will just be confirm button sign out.
+
+## Refund policy
+
+- This page will have a navbar that links to the other pages.
+- There will just be some information going through the return and refund policies.
+
+## FAQ
+
+- This page will have a navbar that links to the other pages.
+- Just a few questions that the customers might want to know about.
+
+## Checkout
+
+- This page will have a navbar that links to the other pages.
+- There will be a form to fill in the for the shipping address and card details.
+- There is a button at the bottom of the page to validate and confirm the details.
 
 # Technology used
 
@@ -130,9 +153,11 @@ This website will include 5 pages that a normal user will have access to and 1 p
 - Python3
     - Python3 is being used to commuicate between Heroku and MongoDB to present the data.
 - Bootstrap
+    - Used to format and style certain html and content.
 - Stripe
-- Django
+    - Used to handle the payments.
 - AWS Amazon
+    - Used to store the photos.
 
 ## Additional Technology used
 
@@ -141,11 +166,11 @@ This website will include 5 pages that a normal user will have access to and 1 p
 
 # Testing
 
-The testing I have done has been documented on a different document. This is the link:
+The testing I have done has been documented on a different document. This is the link: https://github.com/callumhearne/hearne_photos/blob/master/Testing.md
 
 # Deploying my project
 
-To deploy my app/website I have used Heroku the link for the app is here: 
+To deploy my app/website I have used Heroku the link for the app is here: https://hearne-photos.herokuapp.com/ 
 
 ## Deploying to Heroku
 

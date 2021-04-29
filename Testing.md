@@ -9,13 +9,22 @@ The testing process I went through is listed below:
 Testing user stories
 
 New users :
-- This user is able to do exaclty what they asked, they are able create reviews and see other reviews. 
-- The user is able to search through each review using a filter being able to searchfor genre, author or film name.
+
+- New users are able to see only photos from the north east by either selecting the north east page or the usering the search bar. 
+- New users are able to see only photos from the other place by either selecting the others page or the usering the search bar.
+
 Returing users:
-- Returing users are able to edit their reviews which is what the user wanted.
-- Returing users are able to delete their own reviews if they don't like them which is what the user wanted. 
-Tablet user:
+
+- Store owners will be able to edit any photos on the site.
+- Store owners are able to add and edit any photos on the site. 
+
+User:
+
 - The website is fully repsonsive on tablets and phones so this user will be able to use the website fine.
+
+Website Responsivnes
+
+- I have tested all of the pages against all of the different screen types on the to make sure that they are all responsive.
 
 Validating my code
 
@@ -92,17 +101,31 @@ To validate my code I used: https://jshint.com/
 
 - No errors found.
 
+Python
+
+To validate my code I used: http://pep8online.com/checkresult
+
+- The only issues I found using this website was in settings with lines being too long. However I did not change them as that code was not done by me and shouldn't be changed.
+
 Manual Testing
 
-- I went through each of the buttons in the task bar from each page to make sure they worked.
-- To test the site bar I made sure to go through each page using all the buttons from each page.
-- For the editing buttons on the reviews I made sure to edit them so that I could see that the edit button worked correctly.
-- I added and deleted revuews to test that the button worked. I checked the database to see that they were actually deleted.
-- I created numerious reviews using the create review page to make sure the functionality worked correctly and checked that they got added to the database.
-- I registered multiple users using the registration page to test that the register page worked correctly and sent the emails correctly.
-- I logged in and out multiple times with different users to make sure that the log in screen worked.
-- I tried to log in with incorrect user details to make sure that the python checked to see if the user exsisted and had the correct password.
-- I have tried to register with usernames that have already been take to make sure that I can't make users with the same username.
+- I went through each of the buttons in the nav bar from each page to make sure they worked and in repsonsive mode so that I have tested the mobile and proper nav bar.
+- I added an photo, using the photo management page to test it worked.
+- I tested trying to get onto the photo management page using a url without admin to see that I could not access it.
+- I used an account with and without admin to see that the buttons for edit and delete appear correctly.
+- I created a new photo edited it and then deleted it to test that all the admin functions worked.
+- I created a new profile to test that the email confirmation worked correctly.
+- I added some photos to the bag to see if the success toast works and to see if the photos added corretly.
+- I checked that the photos were displaying the correct information.
+- I added under 50 and over worth of items to see if the delievery deal works correctly or not.
+- I've did some fake checkouts to test that the confirmation email comes through correctly.
+- I have checked that the search bar searches for the photo location as well as the description.
+- I've test the filters so that if I select high to low or low to high it will filter the photos prices correctly.
+- I've test the main nav bar so that it will filter the correct photos when selected. Such as only north east photos appearing when selecting the north east page and sorting correctly by high to low etc.
+- I've tested that all the buttons on the my profile page work correctly in the normal nav bar and on the mobile bar.
+- I've test all the buttons for back to browsing to make sure that they are going to the all photos page.
+- I didn't add anything to the basket and went to the checkout page to test that the 'nothing in the basket' message appears.
+- I have tested logging in and logging out to make sure it works correctly.
 
  
 

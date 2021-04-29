@@ -124,9 +124,9 @@ WSGI_APPLICATION = 'hearne_photos.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 
-if 'DATABASE_URL' in os.environ:
+if 'HEROKU_POSTGRESQL_PINK_URL' in os.environ:
     DATABASES = {
-        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+        'default': dj_database_url.parse(os.environ.get('HEROKU_POSTGRESQL_PINK_URL'))
     }
 else:
     DATABASES = {
